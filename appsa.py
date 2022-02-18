@@ -1,7 +1,15 @@
 import streamlit as st
-import requests
+import tweepy
+from textblob import TextBlob
+from wordcloud import WordCloud
 import pandas as pd
+import preprocessor as p
+import nltk
+from nltk.tokenize import word_tokenize
+import matplotlib.pyplot as plt
 from PIL import Image
+import re
+import plotly.express as px
 from user import df_tweet
 from datetime import date
 from datetime import datetime
@@ -45,68 +53,6 @@ def app():
     if st.button("Analizar"):
         texto = "Analizando los últimos " +  str(n) +" tweets de la cuenta"
         st.success(texto)
-        
-        def datos_usuario(raw_text):
-            try:
-                datos = api.get_user(raw_text) 
-                st.write("Nombre: ",datos.name)
-                st.write("Descripción: ",datos.description)    
-                col1, col2 = st.columns(2)
-                col1.metric("Número de seguidores:", datos.followers_count)
-                col2.metric("Número de seguidos:", datos.friends_count)
-                
-                fecha = datos.created_at.year
-                print(fecha)
-                fecha = date.today().year - fecha
-                print(fecha)
-                html_str = f"""Está escribiendo <div style="color:red;font-size:35px;">{ fecha * 12 } meses</div> que obvio es lo mismo que <div style="color:red;font-size:35px;">{fecha} años</div>"""
-                st.markdown(html_str, unsafe_allow_html=True)
-            except:
-                pass  
-            
-        def Show_Recent_Tweets(raw_text):
-            # Extract 3200 tweets from the twitter user 
-            with st.spinner('Extrayendo la información...'):
-                posts = tweepy.Cursor(api.user_timeline, screen_name = raw_text, include_rts = False,tweet_mode="extended").items(n)
-                usuario = df_tweet(posts)        
-            return usuario   
-
-        df = Show_Recent_Tweets(raw_text)
-                
-        df["fecha"] =df['created_at'].dt.strftime('%m/%d/%Y')
-        df["anio"] = df['created_at'].dt.strftime('%Y')
-        df["mesnombre"] = df['created_at'].dt.strftime('%b')
-        df["mes"] = df['created_at'].dt.strftime('%m')
-        
-        df = df[df["anio"].astype(int)>=2021].copy()
-        st.success("¡LISTO!")
-        
-        st.subheader("Estos son tus datos")
-        datos_usuario(raw_text)
-        
-        st.subheader("Palabras más usadas")
-        
-        def gen_wordcloud():
-			# word cloud visualization
-            allWords = ' '.join([twts for twts in df['Tweets']])
-            allWords = p.clean(allWords)
-            wordCloud = WordCloud(width=700, height=500, random_state=21, max_font_size=110,stopwords=stop).generate(allWords)
-            plt.imshow(wordCloud, interpolation="bilinear")
-            plt.axis('off')
-            plt.savefig('WC.jpg')
-            img= Image.open("WC.jpg") 
-            return img
-        
-        try:
-            img=gen_wordcloud()
-            st.image(img,width=700)
-        except:
-            st.write("La cuenta no ha generado tweets")
-        
-        
-        st.subheader("Hashtag más utilizados")
-        
-        try:
             hashtags = df['Tweets'].apply(lambda x: pd.value_counts(re.findall('(#\w+)', x.lower() )))\
                 .sum(axis=0).to_frame().reset_index().sort_values(by=0,ascending=False)
             hashtags.columns = ['hashtag','occurences']
