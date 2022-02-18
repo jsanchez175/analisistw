@@ -54,8 +54,7 @@ def app():
     if st.button("Analizar"):
         texto = "Analizando los últimos " +  str(n) +" tweets de la cuenta"
         st.success(texto)
-            hashtags = df['Tweets'].apply(lambda x: pd.value_counts(re.findall('(#\w+)', x.lower() )))\
-                .sum(axis=0).to_frame().reset_index().sort_values(by=0,ascending=False)
+	hashtags = df['Tweets'].apply(lambda x: pd.value_counts(re.findall('(#\w+)', x.lower() )))\ .sum(axis=0).to_frame().reset_index().sort_values(by=0,ascending=False)
             hashtags.columns = ['hashtag','occurences']
             fig = px.bar(hashtags, x='hashtag', y='occurences')
             st.plotly_chart(fig) 
