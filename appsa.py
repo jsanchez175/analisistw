@@ -1,5 +1,3 @@
-git+https://github.com/tweepy
-
 import streamlit as st
 import tweepy
 from textblob import TextBlob
