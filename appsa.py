@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-from wordcloud import WordCloud
 import pandas as pd
 import preprocessor as p
 import nltk
