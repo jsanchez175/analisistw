@@ -1,15 +1,14 @@
 import requests
 import streamlit as st
 import pandas as pd
-import preprocessor as p
 from nltk.tokenize import word_tokenize
 import matplotlib.pyplot as plt
 from PIL import Image
-import plotly.express as px
 from user import df_tweet
 from datetime import date
 from datetime import datetime
 import streamlit.components.v1 as components
+from user import df_tweet
 
 
 #nltk.download('vader_lexicon')
