@@ -1,12 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-import nltk
-from nltk.tokenize import word_tokenize
-import matplotlib.pyplot as plt
 from PIL import Image
-import re
-import plotly.express as px
 from user import df_tweet
 from datetime import date
 from datetime import datetime
