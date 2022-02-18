@@ -1,7 +1,5 @@
 import requests
 import streamlit as st
-from textblob import TextBlob
-from wordcloud import WordCloud
 import pandas as pd
 import preprocessor as p
 from nltk.tokenize import word_tokenize
