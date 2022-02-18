@@ -1,1 +1,1 @@
-!pip install tweepy 
+apt install tweepy 
