@@ -1,9 +1,6 @@
 import streamlit as st
 import requests
-from textblob import TextBlob
-from wordcloud import WordCloud
 import pandas as pd
-import preprocessor as p
 import nltk
 from nltk.tokenize import word_tokenize
 import matplotlib.pyplot as plt
