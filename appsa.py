@@ -17,10 +17,6 @@ nltk.download('stopwords')
 stop = nltk.corpus.stopwords.words('spanish')
 plt.style.use('fivethirtyeight')
 
-consumer_key = 'kIyGXKtu3tCDLhFhR8Ii3dLCe'
-consumer_secret = 'ji5N35alH2bUb5kAlVKncXVLubuwWeS7Iwf4PuneyaGJu2N6l3'
-access_token = '1392850256241610755-Mx8ftaRkyL9Gkc5AqMstoic6DKJOeQ'
-access_token_secret = 'iwkjvXJi83oWbhmhp4BojCRoIyTkFloF5az8edPe5aUgW'
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 p.set_options(p.OPT.URL, p.OPT.RESERVED,p.OPT.NUMBER)
