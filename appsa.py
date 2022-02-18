@@ -1,5 +1,5 @@
 import streamlit as st
-import tweepy
+import resquests
 from textblob import TextBlob
 from wordcloud import WordCloud
 import pandas as pd
