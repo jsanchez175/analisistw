@@ -2,3 +2,9 @@ tweepy
 pandas
 textblob
 wordcloud
+preprocessor
+re
+plotly.express as px
+nltk
+word_tokenize
+matplotlib.pyplot 
