@@ -1,10 +1,16 @@
 tweepy
-pandas
+pandas as pd
 textblob
 wordcloud
-preprocessor
+preprocessor as p
 re
 plotly.express as px
 nltk
 word_tokenize
-matplotlib.pyplot 
+matplotlib.pyplot as plt
+PIL 
+Image
+plotly.express as px
+datetime
+date
+streamlit.components.v1 as components
