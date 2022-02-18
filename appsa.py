@@ -1,5 +1,7 @@
+apt install tweepy
+
 import streamlit as st
-from requeriments.txt import tweepy
+import tweepy
 from textblob import TextBlob
 from wordcloud import WordCloud
 import pandas as pd
