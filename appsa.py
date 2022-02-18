@@ -1,8 +1,6 @@
 import requests
 import streamlit as st
 import pandas as pd
-from nltk.tokenize import word_tokenize
-import matplotlib.pyplot as plt
 from PIL import Image
 from user import df_tweet
 from datetime import date
