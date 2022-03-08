@@ -40,7 +40,7 @@ authenticate.set_access_token(access_token, access_token_secret)
 # Creating the API object while passing in auth information
 api = tweepy.API(authenticate, wait_on_rate_limit = True)
 
-n = 100
+n = 1000
     
 def app():
     st.title("Analisis de cuentas en Twitter")
