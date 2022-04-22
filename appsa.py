@@ -44,8 +44,8 @@ n = 1000
     
 def app():
     st.title("Analisis de cuentas en Twitter")
-    st.header('Trabajo Final Febrero 2022')
-    st.info("Proyecto impulsado por la Sociedad Ecuatoriana de Estadística")
+    st.header('Radiografia de cuentas')
+    st.info("Proyecto en fase beta")
     st.subheader("¿Qué cuenta quieres analizar?")
     raw_text = st.text_area("Ingresa la cuenta que deseas analizar (sin la @)")
     
@@ -169,7 +169,7 @@ def app():
             st.write("No tiene mayor interacción")
         
         
-        st.caption("Powered by Jorge Sanchez bajo supervisión de Roberto Estevez")
+        st.caption("Powered by Jorge Sanchez")
         
 if __name__ == "__main__":
 	app()
